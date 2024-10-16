@@ -1,0 +1,174 @@
+(0)___CWLITEARM:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '16:04'
+  SOLN_Fault 2_1 - Introduction to Voltage Glitching:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - AssertionError                            Traceback (most recent call last)
+        - 'Cell In[16], line 1
+
+          ----> 1 assert total_successes >= 1
+
+          '
+        - 'AssertionError: '
+    passed: false
+    run time: 0:50
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:03'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:23
+(1)___SIMULATED:
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: 0:34
+  SOLN_Lab 3_2 - Recovering Data from a Single Bit:
+    errors: []
+    passed: true
+    run time: 0:15
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:13
+(2)_CWLITEXMEGA:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '19:30'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:30'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:19
+(3)______CWNANO:
+  SOLN_Fault 2_1B - Introduction to Voltage Glitching with CWNano:
+    errors: []
+    passed: true
+    run time: '4:55'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:02'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: '1:04'
+(4)______CW1200:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '6:22'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:41
+  Test Pro:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - CalledProcessError                        Traceback (most recent call last)
+        - 'Cell In[4], line 1
+
+          ----> 1 get_ipython().run_cell_magic(''bash'', ''-s "$PLATFORM" "$CRYPTO_TARGET"
+          "$SS_VER"'', ''cd ../../hardware/victims/firmware/simpleserial-aes\nmake
+          PLATFORM=$1 CRYPTO_TARGET=$2 SS_VER=$3\n'')
+
+          '
+        - "File ~/.pyenv/versions/cwtests/lib/python3.10/site-packages/IPython/core/interactiveshell.py:2541,\
+          \ in InteractiveShell.run_cell_magic(self, magic_name, line, cell)\n   2539\
+          \ with self.builtin_trap:\n   2540     args = (magic_arg_s, cell)\n-> 2541\
+          \     result = fn(*args, **kwargs)\n   2543 # The code below prevents the\
+          \ output from being displayed\n   2544 # when using magics with decorator\
+          \ @output_can_be_silenced\n   2545 # when the last Python token in the expression\
+          \ is a ';'.\n   2546 if getattr(fn, magic.MAGIC_OUTPUT_CAN_BE_SILENCED,\
+          \ False):\n"
+        - "File ~/.pyenv/versions/cwtests/lib/python3.10/site-packages/IPython/core/magics/script.py:155,\
+          \ in ScriptMagics._make_script_magic.<locals>.named_script_magic(line, cell)\n\
+          \    153 else:\n    154     line = script\n--> 155 return self.shebang(line,\
+          \ cell)\n"
+        - "File ~/.pyenv/versions/cwtests/lib/python3.10/site-packages/IPython/core/magics/script.py:315,\
+          \ in ScriptMagics.shebang(self, line, cell)\n    310 if args.raise_error\
+          \ and p.returncode != 0:\n    311     # If we get here and p.returncode\
+          \ is still None, we must have\n    312     # killed it but not yet seen\
+          \ its return code. We don't wait for it,\n    313     # in case it's stuck\
+          \ in uninterruptible sleep. -9 = SIGKILL\n    314     rc = p.returncode\
+          \ or -9\n--> 315     raise CalledProcessError(rc, cell)\n"
+        - 'CalledProcessError: Command ''b''cd ../../hardware/victims/firmware/simpleserial-aes\nmake
+          PLATFORM=$1 CRYPTO_TARGET=$2 SS_VER=$3\n'''' returned non-zero exit status
+          2.'
+    passed: false
+    run time: 0:57
+(5)_____CWHUSKY:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: 0:45
+  SOLN_Fault 2_1 - Introduction to Voltage Glitching:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - AssertionError                            Traceback (most recent call last)
+        - 'Cell In[16], line 1
+
+          ----> 1 assert total_successes >= 1
+
+          '
+        - 'AssertionError: '
+    passed: false
+    run time: '17:05'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:25
+  Test Husky:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - FileNotFoundError                         Traceback (most recent call last)
+        - "Cell In[2], line 16\n     14 time.sleep(0.25)\n     15 #cw.naeusb_logger.setLevel(cw.logging.DEBUG)\n\
+          ---> 16 cw.program_target(scope, cw.programmers.SAM4SProgrammer, \"../../hardware/victims/firmware/simpleserial-trace/simpleserial-trace-CW308_SAM4S.hex\"\
+          )\n     17 scope.dis()\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/__init__.py:179, in program_target(scope,\
+          \ prog_type, fw_path, **kwargs)\n    177     prog.find()\n    178     prog.erase()\n\
+          --> 179     prog.program(fw_path, memtype=\"flash\", verify=True)\n    180\
+          \     prog.close()\n    181 except:\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/api/programmers.py:129,\
+          \ in save_and_restore_pins.<locals>.func_wrapper(self, *args, **kwargs)\n\
+          \    126 target_logger.debug('Changing {} pin configuration'.format(pin_setup))\n\
+          \    128 try:\n--> 129     val = func(self, *args, **kwargs)\n    130 finally:\n\
+          \    131     target_logger.debug('Restoring {} pin configuration'.format(pin_setup))\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/api/programmers.py:201,\
+          \ in SAM4SProgrammer.program(self, filename, memtype, verify)\n    198 target_logger.info(\"\
+          Opening firmware...\")\n    200 if filename.endswith(\".hex\"):\n--> 201\
+          \     f = IntelHex(filename)\n    202     fw_data = f.tobinarray(start=f.minaddr())\n\
+          \    203 else:\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/utils/IntelHex.py:99,\
+          \ in IntelHex.__init__(self, source)\n     96 if source is not None:\n \
+          \    97     if isinstance(source, StrType) or getattr(source, \"read\",\
+          \ None):\n     98         # load hex file\n---> 99         self.loadhex(source)\n\
+          \    100     elif isinstance(source, dict):\n    101         self.fromdict(source)\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/utils/IntelHex.py:208,\
+          \ in IntelHex.loadhex(self, fobj)\n    201 \"\"\"Load hex file into internal\
+          \ buffer. This is not necessary\n    202 if object was initialized with\
+          \ source set. This will overwrite\n    203 addresses if object was already\
+          \ initialized.\n    204 \n    205 @param  fobj        file name or file-like\
+          \ object\n    206 \"\"\"\n    207 if getattr(fobj, \"read\", None) is None:\n\
+          --> 208     fobj = open(fobj, \"r\")\n    209     fclose = fobj.close\n\
+          \    210 else:\n"
+        - 'FileNotFoundError: [Errno 2] No such file or directory: ''../../hardware/victims/firmware/simpleserial-trace/simpleserial-trace-CW308_SAM4S.hex'''
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mAssertionError\e[0m                            Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[5], line 1\e[0m\n\e[0;32m----> 1\e[0m \e[38;5;28;01massert\e\
+          [39;00m result\e[38;5;241m.\e[39mreturncode \e[38;5;241m==\e[39m \e[38;5;241m0\e\
+          [39m\n"
+        - "\e[0;31mAssertionError\e[0m: "
+    passed: false
+    run time: 0:50
