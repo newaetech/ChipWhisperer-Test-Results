@@ -1,0 +1,238 @@
+(0)___CWLITEARM:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '16:34'
+  SOLN_Fault 2_1 - Introduction to Voltage Glitching:
+    errors: []
+    passed: true
+    run time: '24:35'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:03'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:24
+(1)___SIMULATED:
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: 0:52
+  SOLN_Lab 3_2 - Recovering Data from a Single Bit:
+    errors: []
+    passed: true
+    run time: 0:15
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:17
+(2)_CWLITEXMEGA:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '18:52'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:29'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:22
+(3)______CWNANO:
+  SOLN_Fault 2_1B - Introduction to Voltage Glitching with CWNano:
+    errors: []
+    passed: true
+    run time: '4:44'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:03'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: '1:06'
+(4)______CW1200:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '6:04'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - FileNotFoundError                         Traceback (most recent call last)
+        - "Cell In[2], line 129\n    122     x=open(\"/tmp/tmp.txt\").read(); print(x);\
+          \ raise OSError(x)\n    126 # In[ ]:\n--> 129 cw.program_target(scope, prog,\
+          \ \"../../../firmware/mcu/simpleserial-aes/simpleserial-aes-{}.hex\".format(PLATFORM))\n\
+          \    132 # We only need 50 traces this time to break AES!\n    133 \n  \
+          \  134 # In[ ]:\n    137 splot = cw.StreamPlot()\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/__init__.py:181, in program_target(scope,\
+          \ prog_type, fw_path, **kwargs)\n    179     prog.find()\n    180     prog.erase()\n\
+          --> 181     prog.program(fw_path, memtype=\"flash\", verify=True)\n    182\
+          \     prog.close()\n    183 except:\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/api/programmers.py:129,\
+          \ in save_and_restore_pins.<locals>.func_wrapper(self, *args, **kwargs)\n\
+          \    126 target_logger.debug('Changing {} pin configuration'.format(pin_setup))\n\
+          \    128 try:\n--> 129     val = func(self, *args, **kwargs)\n    130 finally:\n\
+          \    131     target_logger.debug('Restoring {} pin configuration'.format(pin_setup))\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/api/programmers.py:429,\
+          \ in STM32FProgrammer.program(self, filename, memtype, verify)\n    427\
+          \ stm32f = self.stm32prog()\n    428 stm32f.scope = self.scope\n--> 429\
+          \ stm32f.program(filename, memtype, verify)\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/hardware/naeusb/programmer_stm32fserial.py:38,\
+          \ in close_on_fail.<locals>.func_wrapper(self, *args, **kwargs)\n     35\
+          \ @wraps(func)\n     36 def func_wrapper(self, *args, **kwargs):\n     37\
+          \     try:\n---> 38         return func(self, *args, **kwargs)\n     39\
+          \     except:\n     40         self.close_port()\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/hardware/naeusb/programmer_stm32fserial.py:198,\
+          \ in STM32FSerial.program(self, filename, memtype, verify, logfunc, waitfunc,\
+          \ send_chunk)\n    195 \"\"\"Programs memory type, dealing with opening\
+          \ filename as either .hex or .bin file\"\"\"\n    196 self.lastFlashedFile\
+          \ = filename\n--> 198 f = IntelHex(filename)\n    200 fsize = f.maxaddr()\
+          \ - f.minaddr()\n    201 fdata = f.tobinarray(start=f.minaddr())\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/utils/IntelHex.py:99,\
+          \ in IntelHex.__init__(self, source)\n     96 if source is not None:\n \
+          \    97     if isinstance(source, StrType) or getattr(source, \"read\",\
+          \ None):\n     98         # load hex file\n---> 99         self.loadhex(source)\n\
+          \    100     elif isinstance(source, dict):\n    101         self.fromdict(source)\n"
+        - "File ~/chipwhisperer/software/chipwhisperer/capture/utils/IntelHex.py:208,\
+          \ in IntelHex.loadhex(self, fobj)\n    201 \"\"\"Load hex file into internal\
+          \ buffer. This is not necessary\n    202 if object was initialized with\
+          \ source set. This will overwrite\n    203 addresses if object was already\
+          \ initialized.\n    204 \n    205 @param  fobj        file name or file-like\
+          \ object\n    206 \"\"\"\n    207 if getattr(fobj, \"read\", None) is None:\n\
+          --> 208     fobj = open(fobj, \"r\")\n    209     fclose = fobj.close\n\
+          \    210 else:\n"
+        - 'FileNotFoundError: [Errno 2] No such file or directory: ''../../../firmware/mcu/simpleserial-aes/simpleserial-aes-CW308_STM32F4.hex'''
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[3], line 4\e[0m\n\e[1;32m      1\e[0m \e[38;5;66;03m# ###################\e\
+          [39;00m\n\e[1;32m      2\e[0m \e[38;5;66;03m# START SOLUTION\e[39;00m\n\e\
+          [1;32m      3\e[0m \e[38;5;66;03m# ###################\e[39;00m\n\e[0;32m---->\
+          \ 4\e[0m cw\e[38;5;241m.\e[39mplot(\e[43mtrace_array\e[49m[\e[38;5;241m0\e\
+          [39m]) \e[38;5;241m*\e[39m cw\e[38;5;241m.\e[39mplot(trace_array[\e[38;5;241m1\e\
+          [39m])\n\e[1;32m      5\e[0m \e[38;5;66;03m# ###################\e[39;00m\n\
+          \e[1;32m      6\e[0m \e[38;5;66;03m# END SOLUTION\e[39;00m\n\e[1;32m   \
+          \   7\e[0m \e[38;5;66;03m# ###################\e[39;00m\n"
+        - "\e[0;31mNameError\e[0m: name 'trace_array' is not defined"
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[9], line 1\e[0m\n\e[0;32m----> 1\e[0m \e[38;5;28mprint\e\
+          [39m(\e[43mtrace_array\e[49m)\n"
+        - "\e[0;31mNameError\e[0m: name 'trace_array' is not defined"
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[10], line 6\e[0m\n\e[1;32m      2\e[0m maxcpa \e[38;5;241m=\e\
+          [39m [\e[38;5;241m0\e[39m] \e[38;5;241m*\e[39m \e[38;5;241m256\e[39m\n\e\
+          [1;32m      4\e[0m \e[38;5;66;03m# we don't need to redo the mean and std\
+          \ dev calculations \e[39;00m\n\e[1;32m      5\e[0m \e[38;5;66;03m# for each\
+          \ key guess\e[39;00m\n\e[0;32m----> 6\e[0m t_bar \e[38;5;241m=\e[39m mean(\e\
+          [43mtrace_array\e[49m) \n\e[1;32m      7\e[0m o_t \e[38;5;241m=\e[39m std_dev(trace_array,\
+          \ t_bar)\n\e[1;32m      9\e[0m \e[38;5;28;01mfor\e[39;00m kguess \e[38;5;129;01min\e\
+          [39;00m trange(\e[38;5;241m0\e[39m, \e[38;5;241m256\e[39m):\n"
+        - "\e[0;31mNameError\e[0m: name 'trace_array' is not defined"
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[11], line 1\e[0m\n\e[0;32m----> 1\e[0m \e[38;5;28;01massert\e\
+          [39;00m \e[43mguess\e[49m \e[38;5;241m==\e[39m \e[38;5;241m0x2b\e[39m\n\e\
+          [1;32m      2\e[0m \e[38;5;28mprint\e[39m(\e[38;5;124m\"\e[39m\e[38;5;124m\u2714\
+          \uFE0F OK to continue!\e[39m\e[38;5;124m\"\e[39m)\n"
+        - "\e[0;31mNameError\e[0m: name 'guess' is not defined"
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[12], line 1\e[0m\n\e[0;32m----> 1\e[0m t_bar \e[38;5;241m=\e\
+          [39m np\e[38;5;241m.\e[39msum(\e[43mtrace_array\e[49m, axis\e[38;5;241m=\e\
+          [39m\e[38;5;241m0\e[39m)\e[38;5;241m/\e[39m\e[38;5;28mlen\e[39m(trace_array)\n\
+          \e[1;32m      2\e[0m o_t \e[38;5;241m=\e[39m np\e[38;5;241m.\e[39msqrt(np\e\
+          [38;5;241m.\e[39msum((trace_array \e[38;5;241m-\e[39m t_bar)\e[38;5;241m*\e\
+          [39m\e[38;5;241m*\e[39m\e[38;5;241m2\e[39m, axis\e[38;5;241m=\e[39m\e[38;5;241m0\e\
+          [39m))\n\e[1;32m      4\e[0m cparefs \e[38;5;241m=\e[39m [\e[38;5;241m0\e\
+          [39m] \e[38;5;241m*\e[39m \e[38;5;241m16\e[39m \e[38;5;66;03m#put your key\
+          \ byte guess correlations here\e[39;00m\n"
+        - "\e[0;31mNameError\e[0m: name 'trace_array' is not defined"
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[13], line 2\e[0m\n\e[1;32m      1\e[0m \e[38;5;28;01mfor\e\
+          [39;00m bnum \e[38;5;129;01min\e[39;00m \e[38;5;28mrange\e[39m(\e[38;5;241m16\e\
+          [39m):\n\e[0;32m----> 2\e[0m     \e[38;5;28;01massert\e[39;00m \e[43mbestguess\e\
+          [49m[bnum] \e[38;5;241m==\e[39m key[bnum], \\\n\e[1;32m      3\e[0m    \
+          \ \e[38;5;124m\"\e[39m\e[38;5;124mByte \e[39m\e[38;5;132;01m{}\e[39;00m\e\
+          [38;5;124m failed, expected \e[39m\e[38;5;132;01m{:02X}\e[39;00m\e[38;5;124m\
+          \ got \e[39m\e[38;5;132;01m{:02X}\e[39;00m\e[38;5;124m\"\e[39m\e[38;5;241m.\e\
+          [39mformat(bnum, key[bnum], bestguess[bnum])\n\e[1;32m      4\e[0m \e[38;5;28mprint\e\
+          [39m(\e[38;5;124m\"\e[39m\e[38;5;124m\u2714\uFE0F OK to continue!\e[39m\e\
+          [38;5;124m\"\e[39m)\n"
+        - "\e[0;31mNameError\e[0m: name 'bestguess' is not defined"
+    passed: false
+    run time: 0:26
+  Test Pro:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - FileNotFoundError                         Traceback (most recent call last)
+        - "Cell In[14], line 2\n      1 import numpy as np\n----> 2 ref_wave = np.load(\"\
+          pro_stream.npy\", allow_pickle=True)\n"
+        - "File ~/.pyenv/versions/cwtests/lib/python3.10/site-packages/numpy/lib/npyio.py:427,\
+          \ in load(file, mmap_mode, allow_pickle, fix_imports, encoding, max_header_size)\n\
+          \    425     own_fid = False\n    426 else:\n--> 427     fid = stack.enter_context(open(os_fspath(file),\
+          \ \"rb\"))\n    428     own_fid = True\n    430 # Code to distinguish from\
+          \ NumPy binary files and pickles.\n"
+        - 'FileNotFoundError: [Errno 2] No such file or directory: ''pro_stream.npy'''
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[16], line 1\e[0m\n\e[0;32m----> 1\e[0m sad \e[38;5;241m=\e\
+          [39m np\e[38;5;241m.\e[39msum(np\e[38;5;241m.\e[39mabs(\e[43mref_wave\e\
+          [49m \e[38;5;241m-\e[39m ret\e[38;5;241m.\e[39mwave))\n\e[1;32m      2\e\
+          [0m \e[38;5;66;03m#assert(sad < 5000), \"Bad stream (must be <5000), SAD\
+          \ = {}\".format(sad)\e[39;00m\n"
+        - "\e[0;31mNameError\e[0m: name 'ref_wave' is not defined"
+    passed: false
+    run time: '1:01'
+(5)_____CWHUSKY:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '1:13'
+  SOLN_Fault 2_1 - Introduction to Voltage Glitching:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - AssertionError                            Traceback (most recent call last)
+        - 'Cell In[16], line 1
+
+          ----> 1 assert total_successes >= 1
+
+          '
+        - 'AssertionError: '
+    passed: false
+    run time: '101:10'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:25
+  Test Husky:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - AssertionError                            Traceback (most recent call last)
+        - 'Cell In[5], line 1
+
+          ----> 1 assert result.returncode == 0
+
+          '
+        - 'AssertionError: '
+    passed: false
+    run time: '19:44'
