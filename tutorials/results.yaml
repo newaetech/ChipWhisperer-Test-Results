@@ -1,0 +1,114 @@
+(0)___CWLITEARM:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '15:27'
+  SOLN_Fault 2_1 - Introduction to Voltage Glitching:
+    errors: []
+    passed: true
+    run time: '24:39'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:05'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:23
+(1)___SIMULATED:
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: 0:54
+  SOLN_Lab 3_2 - Recovering Data from a Single Bit:
+    errors: []
+    passed: true
+    run time: 0:12
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:16
+(2)_CWLITEXMEGA:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '19:43'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:32'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:20
+(3)______CWNANO:
+  SOLN_Fault 2_1B - Introduction to Voltage Glitching with CWNano:
+    errors: []
+    passed: true
+    run time: '4:51'
+  SOLN_Lab 2_1B - Power Analysis for Password Bypass:
+    errors: []
+    passed: true
+    run time: '1:06'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: '1:01'
+(4)______CW1200:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: '11:09'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:43
+  Test Pro:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - FileNotFoundError                         Traceback (most recent call last)
+        - "Cell In[14], line 2\n      1 import numpy as np\n----> 2 ref_wave = np.load(\"\
+          pro_stream.npy\", allow_pickle=True)\n"
+        - "File ~/.pyenv/versions/cwtests/lib/python3.10/site-packages/numpy/lib/npyio.py:427,\
+          \ in load(file, mmap_mode, allow_pickle, fix_imports, encoding, max_header_size)\n\
+          \    425     own_fid = False\n    426 else:\n--> 427     fid = stack.enter_context(open(os_fspath(file),\
+          \ \"rb\"))\n    428     own_fid = True\n    430 # Code to distinguish from\
+          \ NumPy binary files and pickles.\n"
+        - 'FileNotFoundError: [Errno 2] No such file or directory: ''pro_stream.npy'''
+      - - "\e[0;31m---------------------------------------------------------------------------\e\
+          [0m"
+        - "\e[0;31mNameError\e[0m                                 Traceback (most\
+          \ recent call last)"
+        - "Cell \e[0;32mIn[16], line 1\e[0m\n\e[0;32m----> 1\e[0m sad \e[38;5;241m=\e\
+          [39m np\e[38;5;241m.\e[39msum(np\e[38;5;241m.\e[39mabs(\e[43mref_wave\e\
+          [49m \e[38;5;241m-\e[39m ret\e[38;5;241m.\e[39mwave))\n\e[1;32m      2\e\
+          [0m \e[38;5;66;03m#assert(sad < 5000), \"Bad stream (must be <5000), SAD\
+          \ = {}\".format(sad)\e[39;00m\n"
+        - "\e[0;31mNameError\e[0m: name 'ref_wave' is not defined"
+    passed: false
+    run time: '1:00'
+(5)_____CWHUSKY:
+  SOLN_Fault 1_1 - Introduction to Clock Glitching:
+    errors: []
+    passed: true
+    run time: 0:46
+  SOLN_Fault 2_1 - Introduction to Voltage Glitching:
+    errors: []
+    passed: true
+    run time: '99:54'
+  SOLN_Lab 4_2 - CPA on Firmware Implementation of AES:
+    errors: []
+    passed: true
+    run time: 0:27
+  Test Husky:
+    errors: !!python/tuple
+    - - - '---------------------------------------------------------------------------'
+        - AssertionError                            Traceback (most recent call last)
+        - 'Cell In[5], line 1
+
+          ----> 1 assert result.returncode == 0
+
+          '
+        - 'AssertionError: '
+    passed: false
+    run time: 0:12
